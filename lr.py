@@ -4,10 +4,12 @@ import theano
 import theano.tensor as T
 import numpy as np
 import pandas as pd
-from double_moon import double_moon
+from materials import double_moon
 
 # origin data
-DM_X, DM_Y = double_moon(20, 50)
+DM_DATA = double_moon(20, 50, 1)
+DM_X = DM_DATA[['x', 'y']].as_matrix()
+DM_Y = DM_DATA['class'].as_matrix()
 
 # model
 X = T.fmatrix()
